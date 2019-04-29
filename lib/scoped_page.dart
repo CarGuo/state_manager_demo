@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -15,7 +13,7 @@ class _ScopedPageState extends State<ScopedPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: new Text("bloc"),
+          title: new Text("scoped"),
         ),
         body: Container(
           child: new ScopedModel<CountModel>(

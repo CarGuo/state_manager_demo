@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:state_manager_demo/bloc_page.dart';
+import 'package:state_manager_demo/redux_page.dart';
 import 'package:state_manager_demo/scoped_page.dart';
 
 void main() => runApp(MyApp());
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
         },
         "scoped": (context) {
           return ScopedPage();
+        },
+        "redux": (context) {
+          return ReduxPage();
         },
       },
     );
@@ -111,7 +115,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.of(context).pushNamed("scoped");
                 },
                 child: new Text("scoped_model")),
-            new FlatButton(onPressed: () {}, child: new Text("flutter_redxu")),
+            new FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("redux");
+                },
+                child: new Text("flutter_redux")),
             new FlatButton(onPressed: () {}, child: new Text("fish_redux")),
           ],
         ),
