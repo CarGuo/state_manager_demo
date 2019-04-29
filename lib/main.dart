@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:state_manager_demo/bloc_page.dart';
+import 'package:state_manager_demo/scoped_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,7 +26,10 @@ class MyApp extends StatelessWidget {
       routes: {
         "bloc": (context) {
           return BlocPage();
-        }
+        },
+        "scoped": (context) {
+          return ScopedPage();
+        },
       },
     );
   }
@@ -102,7 +106,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.of(context).pushNamed("bloc");
                 },
                 child: new Text("bloc")),
-            new FlatButton(onPressed: () {}, child: new Text("scoped_model")),
+            new FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("scoped");
+                },
+                child: new Text("scoped_model")),
             new FlatButton(onPressed: () {}, child: new Text("flutter_redxu")),
             new FlatButton(onPressed: () {}, child: new Text("fish_redux")),
           ],
