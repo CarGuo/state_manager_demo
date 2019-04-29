@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_manager_demo/bloc_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter State Manager',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -20,7 +21,12 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter State Manager'),
+      routes: {
+        "bloc": (context) {
+          return BlocPage();
+        }
+      },
     );
   }
 }
@@ -91,8 +97,12 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new FlatButton(onPressed: () {}, child: new Text("bloc")),
-            new FlatButton(onPressed: () {}, child: new Text("scope_model")),
+            new FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("bloc");
+                },
+                child: new Text("bloc")),
+            new FlatButton(onPressed: () {}, child: new Text("scoped_model")),
             new FlatButton(onPressed: () {}, child: new Text("flutter_redxu")),
             new FlatButton(onPressed: () {}, child: new Text("fish_redux")),
           ],
