@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+///Bloc + Stream
 class BlocPage extends StatefulWidget {
   @override
   _BlocPageState createState() => _BlocPageState();
@@ -58,6 +59,7 @@ class _BlocPageState extends State<BlocPage> {
     );
   }
 }
+
 
 class PageBloc {
   int _count = 0;

@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
+/// Redux 的页面显示
 class ReduxPage extends StatefulWidget {
   @override
   _ReduxPageState createState() => _ReduxPageState();
 }
 
 class _ReduxPageState extends State<ReduxPage> {
+
+  ///初始化store
   final store = new Store<CountState>(
     appReducer,
     middleware: middleware,
@@ -29,6 +32,7 @@ class _ReduxPageState extends State<ReduxPage> {
   }
 }
 
+///内容控件
 class CountWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -63,6 +67,7 @@ class CountWidget extends StatelessWidget {
   }
 }
 
+///中间键拦截
 final List<Middleware<CountState>> middleware = [
   CountMiddleware(),
 ];
@@ -80,6 +85,7 @@ class CountMiddleware implements MiddlewareClass<CountState> {
   }
 }
 
+///Reducer
 CountState appReducer(CountState state, action) {
   return CountState(
     ///通过 UserReducer 将 GSYState 内的 userInfo 和 action 关联在一起
@@ -102,10 +108,12 @@ int _decHandler(int count, action) {
   return count;
 }
 
+/// Action
 class AddCountAction {}
 
 class DecCountAction {}
 
+/// State
 class CountState {
   int count;
 
