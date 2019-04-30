@@ -64,11 +64,13 @@ class _BlocPageState extends State<BlocPage> {
 class PageBloc {
   int _count = 0;
 
-  ///language
+  ///StreamController
   StreamController<int> _countController = StreamController<int>();
 
+  ///对外提供入口
   StreamSink<int> get _countSink => _countController.sink;
 
+  ///提供 stream StreamBuilder 订阅
   Stream<int> get stream => _countController.stream;
 
   void dispose() {
