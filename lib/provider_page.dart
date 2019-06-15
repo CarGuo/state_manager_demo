@@ -16,9 +16,12 @@ class _ProviderPageState extends State<ProviderPage> {
       ],
       child: Scaffold(
         appBar: AppBar(
-          title: Consumer<ProviderModel>(builder: (context, counter, _) {
-            return new Text("Provider ${counter.count.toString()}");
-          }),
+          title: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              var counter =  Provider.of<ProviderModel>(context);
+              return new Text("Provider ${counter.count.toString()}");
+            },
+          )
         ),
         body: CountWidget(),
       ),
