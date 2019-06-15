@@ -26,6 +26,7 @@ dependencies:
   fish_redux: ^0.1.7
   flutter_redux: ^0.5.3
   scoped_model: ^1.0.1
+  provider: ^3.0.0+1
 
 dev_dependencies:
   flutter_test:

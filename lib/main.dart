@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:state_manager_demo/bloc_page.dart';
+import 'package:state_manager_demo/provider_page.dart';
 import 'package:state_manager_demo/redux_page.dart';
 import 'package:state_manager_demo/scoped_page.dart';
 
@@ -38,6 +39,9 @@ class MyApp extends StatelessWidget {
         },
         "fish": (context) {
           return FishPage().buildPage(null);
+        },
+        "provider": (context) {
+          return ProviderPage();
         },
       },
     );
@@ -130,6 +134,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.of(context).pushNamed("fish");
                 },
                 child: new Text("fish_redux")),
+            new FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("provider");
+                },
+                child: new Text("provider")),
           ],
         ),
       ),
