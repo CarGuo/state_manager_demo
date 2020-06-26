@@ -12,7 +12,7 @@ class _ProviderPageState extends State<ProviderPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(builder: (_) => ProviderModel()),
+        ChangeNotifierProvider(create: (_) => ProviderModel()),
       ],
       child: Scaffold(
         appBar: AppBar(
@@ -32,6 +32,8 @@ class _ProviderPageState extends State<ProviderPage> {
 class CountWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var model = Provider.of<ProviderModel>(context);
+    print("###### ${model}");
     return Consumer<ProviderModel>(builder: (context, counter, _) {
       return new Column(
         children: <Widget>[
